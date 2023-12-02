@@ -1,0 +1,26 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "lfact"
+authors = [
+    {name = "Kushal Das", email = "mail@kushaldas.in"},
+]
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
+requires-python = ">=3.6"
+dynamic = ["version", "description"]
+
+[project.urls]
+Documentation = "https://pymbook.readthedocs.io/en/latest/"
+Source = "https://github.com/kushaldas/pym"
+
+[project.scripts]
+myfact = "lfact:cli"
+
+[tool.flit.sdist]
+include = ["LICENSE", "README.md"]
+

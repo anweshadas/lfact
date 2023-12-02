@@ -8,13 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: checkout source code
+        uses: actions/checkout@v4
+
       - name: Install dependencies
         run: |
           python3 -m pip install flit wheel
 
       - name: Build the project
-        working-directory: lfact
         run: |
+          pwd
           flit build
 
 

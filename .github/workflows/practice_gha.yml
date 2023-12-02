@@ -43,6 +43,10 @@ jobs:
       - name: Display structure of downloaded files
         run: ls -R
 
+      - name: Upload sdist and wheel to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/
 
 
 

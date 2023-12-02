@@ -31,6 +31,8 @@ jobs:
     needs: build
     name: Upload arrtifact to PyPI
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
 
     steps:
 

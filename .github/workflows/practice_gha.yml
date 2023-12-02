@@ -1,0 +1,24 @@
+name: Practice Github Actions
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+  name: 'Build lfact (${{ inputs.project-version}})'
+  runs-on: ubuntu-latest
+
+  steps:
+    - name: Install dependencies
+      run: |
+        python3 -m pip install flit wheel
+
+    - name: Build the project
+      working-directory: lfact
+      run: |
+       flit build
+
+    - name: Upload sdist and wheel to testPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        repository-url: https://test.pypi.org/legacy/
+

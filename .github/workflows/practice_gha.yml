@@ -26,7 +26,9 @@ jobs:
           name: lfact-files
           path: dist/*
 
+
   upload:
+    needs: build
     name: Upload arrtifact to PyPI
     runs-on: ubuntu-latest
 
@@ -36,6 +38,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: lfact-files
+          path: dist/
 
       - name: Display structure of downloaded files
         run: ls -R
